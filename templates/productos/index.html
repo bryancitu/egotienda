@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Productos {% endblock title %}
+
+{% block content %}
+
+    <ol>
+        {% for p in productos %}
+            <li><a href="{% url 'producto_detalle' slug=p.slug %}">{{ p.titulo }}</a></li>
+            <ul>
+                <li>Categoria: {{p.categoria}} </li>
+                <li>Subcategoria: {{p.subcategoria}} </li>
+                <li>Usuario: {{p.usuario}} </li>
+                <li>Subcategoria: {{p.subcategoria}} </li>
+                <li>Descripcion: {{p.descripcion}} </li>
+                <li>Imagen: {{p.imagen}} </li>
+                <li>Precio: S/. {{p.precio}} </li>
+            </ul>
+        {% endfor %}
+    </ol>
+        
+{% endblock %}

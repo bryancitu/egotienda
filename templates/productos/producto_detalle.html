@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} producto Detallado {% endblock title %}
+
+{% block content %}
+
+<style>
+body{color: #70839c;}
+
+.contenedor-producto{display: flex;}
+
+.contenedor-img-producto{width: 50%;text-align: center;}
+.contenedor-img-producto img{width: 80%;}
+
+.contenedor-contenido-producto{width: 45%;}
+.contenedor-contenido-producto h1{border-bottom: 1px solid #5f6f83;margin-bottom: 50px;}
+.contenedor-contenido-producto p{font-size: 18px;margin-bottom: 30px;}
+.producto-precio{padding: 20px;font-size: 50px;color: #3dc4ad;border: 3px dashed #cdd3db;}
+</style>
+
+<div class="contenedor-producto">
+    <div class="contenedor-img-producto">
+        <img src="{{producto.imagen.url}}" alt="{{producto.title}}">
+    </div>
+    <div class="contenedor-contenido-producto">
+        <h1>{{producto.titulo}}</h1>
+        <p>{{producto.descripcion|linebreaks}}</p>
+        <h2>Categoria: <span>{{producto.categoria}}</span> </h2>
+        <h2>Subcategoria: <span>{{producto.subcategoria}}</span> </h2>
+        
+        <h2>Usuario: <span>{{producto.usuario}}</span></h2>
+        <div class="producto-precio">Precio: S/. {{producto.precio}}</div>
+    </div>
+</div>
+        
+{% endblock %}
